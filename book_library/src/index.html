@@ -13,8 +13,109 @@
     />
   </head>
   <body>
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="fixed top-4 right-4 z-50">
+      <!-- Toasts will be inserted here -->
+    </div>
+    <dialog id="add-book" class="m-auto">
+      <form method="dialog" class="p-6" id="new-book-form">
+        <h2 class="text-2xl font-bold mb-4">Add a New Book</h2>
+        <label class="block mb-2">
+          Title:
+          <input
+            type="text"
+            id="book-title"
+            class="border border-gray-300 rounded-lg p-2 w-full"
+            required
+          />
+        </label>
+        <label class="block mb-4">
+          Author:
+          <input
+            type="text"
+            id="book-author"
+            class="border border-gray-300 rounded-lg p-2 w-full"
+            required
+          />
+        </label>
+        <label class="block mb-4">
+          Number of Pages:
+          <input
+            type="number"
+            id="book-pages"
+            class="border border-gray-300 rounded-lg p-2 w-full"
+            required
+          />
+        </label>
+        <label class="block mb-4">
+          Status:
+          <select
+            id="book-status"
+            class="border border-gray-300 rounded-lg p-2 w-full"
+            required
+          >
+            <option value="read">Read</option>
+            <option value="unread">Unread</option>
+          </select>
+        </label>
+        <div class="flex justify-end gap-2">
+          <button
+            type="button"
+            id="close-btn"
+            class="bg-red-500 hover:bg-red-600 text-white rounded-lg px-4 py-2"
+          >
+            Close
+          </button>
+          <button
+            type="submit"
+            id="submit-btn"
+            class="bg-blue-500 hover:bg-blue-600 text-white rounded-lg px-4 py-2"
+          >
+            Add Book
+          </button>
+        </div>
+      </form>
+    </dialog>
+
     <div class="container mx-auto p-6">
-      <h1 class="text-4xl font-bold text-center mb-8">My Book Library</h1>
+      <div class="flex flex-col items-center mb-6">
+        <h1 class="text-4xl font-bold text-center mb-8">Book Library</h1>
+        <button
+          id="add-book-btn"
+          class="bg-blue-500 text-white rounded-full p-2 px-6 shadow-lg justify-center hover:bg-blue-600 transition-colors duration-200 flex items-center gap-2"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <rect
+              x="3"
+              y="5"
+              width="14"
+              height="14"
+              rx="2"
+              stroke="currentColor"
+              stroke-width="2"
+              fill="none"
+            />
+            <path
+              d="M17 7h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H7"
+              stroke="currentColor"
+              stroke-width="2"
+              fill="none"
+            />
+            <path
+              d="M12 13v-4M10 11h4"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+          <span id="add-book-btn-title">Add Book</span>
+        </button>
+      </div>
       <div class="flex justify-center mb-6">
         <input
           type="text"
