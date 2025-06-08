@@ -7,20 +7,19 @@ import { showToast } from "./toast.js";
  * @param {Event} event - The form submit event
  * @param {HTMLElement} form - The form element
  * @param {HTMLElement} dialog - The dialog element
- * @param {HTMLElement} booksContainer - The container to refresh books display
  */
-export function addNewBook(event, form, dialog, booksContainer) {
+export function addNewBook(event, form, dialog) {
   event.preventDefault();
 
   try {
     // Get form field values
-    const title = document.getElementById('book-title').value.trim();
-    const author = document.getElementById('book-author').value.trim();
-    const numOfPages = parseInt(document.getElementById('book-pages').value);
-    const status = document.getElementById('book-status').value;
+    const title = document.getElementById("book-title").value.trim();
+    const author = document.getElementById("book-author").value.trim();
+    const numOfPages = parseInt(document.getElementById("book-pages").value);
+    const status = document.getElementById("book-status").value;
 
     // Convert status to boolean
-    const isRead = status === 'read';
+    const isRead = status === "read";
 
     // Create new book using the Book class
     Book.addBook(title, author, isRead, numOfPages);
@@ -30,13 +29,16 @@ export function addNewBook(event, form, dialog, booksContainer) {
     dialog.close();
 
     // Refresh the books display
-    displayBooks(booksContainer);
+    displayBooks();
 
     // Show success notification
-    showToast('Success!', `"${title}" has been added to your library.`, 'success');
-
+    showToast(
+      "Success!",
+      `"${title}" has been added to your library.`,
+      "success"
+    );
   } catch (error) {
     // Show error notification
-    showToast('Error', `Unable to add book: ${error.message}`, 'error');
+    showToast("Error", `Unable to add book: ${error.message}`, "error");
   }
 }

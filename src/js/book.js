@@ -133,6 +133,26 @@ export default class Book {
     new Book(title, author, isRead, numOfPages);
   }
 
+  /**
+   * Deletes a book by its ID
+   * @param {string} id - The unique ID of the book to delete
+   * @returns {Object} The deleted book object
+   */
+  static deleteBook(id) {
+    if (typeof id !== "string" || id.trim() === "") {
+      throw new Error("ID must be a non-empty string.");
+    }
+
+    const bookIndex = this.#books.findIndex((book) => book.id === id);
+    if (bookIndex === -1) {
+      throw new Error(`Book with ID "${id}" not found.`);
+    }
+
+    const deletedBook = this.#books[bookIndex];
+    this.#books.splice(bookIndex, 1);
+    return deletedBook;
+  }
+
   static findBookById(id) {
     if (typeof id !== "string" || id.trim() === "") {
       throw new Error("ID must be a non-empty string.");
