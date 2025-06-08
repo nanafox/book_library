@@ -1,0 +1,17 @@
+{
+  "name": "book_library",
+  "version": "1.0.0",
+  "description": "A simple book library - a TheOdinProject task",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Maxwell Nana Forson",
+  "license": "MIT",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.8",
+    "tailwindcss": "^4.1.8"
+  },
+  "type": "module"
+}
