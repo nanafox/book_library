@@ -4,6 +4,7 @@ import { initializeToast } from "./toast.js";
 import { addNewBook } from "./bookForm.js";
 import { setupDeleteListeners } from "./deleteBook.js";
 import { initializeModal } from "./modal.js";
+import { setupStatusToggleListeners } from "./toggleStatus.js";
 
 // DOM elements
 let searchInput;
@@ -27,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initializeToast(toastContainer);
   initializeModal(); // Initialize custom modal system
   setupDeleteListeners(); // Initialize delete functionality
+  setupStatusToggleListeners(); // Initialize status toggle functionality
 
   // Add event listeners
   searchInput.addEventListener("input", () => {

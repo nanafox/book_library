@@ -227,4 +227,25 @@ export default class Book {
       throw new Error("A book with the same title and author already exists.");
     }
   }
+
+  /**
+   * Updates the read status of a book by its ID
+   * @param {string} id - The unique ID of the book to update
+   * @param {boolean} isRead - The new read status
+   * @returns {Object} The updated book object
+   */
+  static updateReadStatus(id, isRead) {
+    if (typeof id !== "string" || id.trim() === "") {
+      throw new Error("ID must be a non-empty string.");
+    }
+
+    if (typeof isRead !== "boolean") {
+      throw new Error("Read status must be a boolean.");
+    }
+
+    const book = Book.findBookById(id);
+    book.isRead = isRead;
+
+    return book;
+  }
 }
