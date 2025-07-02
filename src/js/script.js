@@ -5,6 +5,7 @@ import { addNewBook } from "./bookForm.js";
 import { setupDeleteListeners } from "./deleteBook.js";
 import { initializeModal } from "./modal.js";
 import { setupStatusToggleListeners } from "./toggleStatus.js";
+import Book from "./book.js";
 
 // DOM elements
 let searchInput;
@@ -51,5 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Display initial books
+  Book.prepareBooks();
+
   displayBooks();
 });
