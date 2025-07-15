@@ -1,10 +1,10 @@
-import { displayBooks } from "./ui.js";
-import { searchBooks } from "./search.js";
-import { initializeToast } from "./toast.js";
-import { addNewBook } from "./bookForm.js";
-import { setupDeleteListeners } from "./deleteBook.js";
-import { initializeModal } from "./modal.js";
-import { setupStatusToggleListeners } from "./toggleStatus.js";
+import {displayBooks} from "./ui.js";
+import {searchBooks} from "./search.js";
+import {initializeToast} from "./toast.js";
+import {addNewBook} from "./bookForm.js";
+import {setupDeleteListeners} from "./deleteBook.js";
+import {initializeModal} from "./modal.js";
+import {setupStatusToggleListeners} from "./toggleStatus.js";
 import Book from "./book.js";
 
 // DOM elements
@@ -13,6 +13,7 @@ let addBookButton;
 let newBookFormDialog;
 let newBookForm;
 let toastContainer;
+let xCloseButton;
 
 // Initialize everything when DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
@@ -22,6 +23,8 @@ document.addEventListener("DOMContentLoaded", () => {
   newBookForm = document.getElementById("new-book-form");
   newBookFormDialog = document.getElementById("add-book");
   toastContainer = document.getElementById("toast-container");
+
+  xCloseButton = document.getElementById("x-close-btn");
 
   const closeDialogBtn = document.getElementById("close-btn");
 
@@ -49,6 +52,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // Handle form submission (works for both button click and Enter key)
   newBookForm.addEventListener("submit", (event) => {
     addNewBook(event, newBookForm, newBookFormDialog);
+  });
+
+  xCloseButton.addEventListener("click", () => {
+    newBookFormDialog.close()
   });
 
   // Display initial books

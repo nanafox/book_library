@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="./src/output.css" rel="stylesheet" />
-    <script src="./src/js/script.js" type="module" defer></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link href="./src/output.css" rel="stylesheet"/>
+    <script defer src="./src/js/script.js" type="module"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet"
@@ -14,47 +14,53 @@
   </head>
   <body>
     <!-- Toast Notification Container -->
-    <div id="toast-container" class="fixed top-4 right-4 z-50">
+    <div class="fixed top-4 right-4 z-50" id="toast-container">
       <!-- Toasts will be inserted here -->
     </div>
     <dialog
-      id="add-book"
       class="rounded-md w-full max-w-3xl bg-whit border border-gray-200 shadow-lg dark:shadow-gray-900/20 backdrop:bg-black/60 backdrop:backdrop-blur-sm top-auto md:top-1/2 md:-translate-y-1/2 left-1/2 -translate-x-1/2 max-h-[80%] p-6 hidden open:flex flex-col relative opacity-0 open:opacity-100 transition-opacity duration-300 ease-in-out"
+      id="add-book"
     >
-      <form method="dialog" class="p-6" id="new-book-form">
-        <h2 class="text-2xl font-bold mb-4">Add a New Book</h2>
+      <form class="p-6" id="new-book-form" method="dialog">
+        <div class="flex justify-between items-center">
+          <h2 class="text-2xl font-bold mb-4">Add a New Book</h2>
+          <!-- Simple close button -->
+          <button class="text-sm" id="x-close-btn" type="button">
+            X
+          </button>
+        </div>
         <label class="block mb-2">
           Title:
           <input
-            type="text"
-            id="book-title"
             class="border border-gray-300 rounded-lg p-2 w-full"
+            id="book-title"
             required
+            type="text"
           />
         </label>
         <label class="block mb-4">
           Author:
           <input
-            type="text"
-            id="book-author"
             class="border border-gray-300 rounded-lg p-2 w-full"
+            id="book-author"
             required
+            type="text"
           />
         </label>
         <label class="block mb-4">
           Number of Pages:
           <input
-            type="number"
-            id="book-pages"
             class="border border-gray-300 rounded-lg p-2 w-full"
+            id="book-pages"
             required
+            type="number"
           />
         </label>
         <label class="block mb-4">
           Status:
           <select
-            id="book-status"
             class="border border-gray-300 rounded-lg p-2 w-full"
+            id="book-status"
             required
           >
             <option value="read">Read</option>
@@ -63,16 +69,16 @@
         </label>
         <div class="flex justify-end gap-2">
           <button
-            type="button"
-            id="close-btn"
             class="bg-red-500 hover:bg-red-600 text-white rounded-lg px-4 py-2"
+            id="close-btn"
+            type="button"
           >
             Close
           </button>
           <button
-            type="submit"
-            id="submit-btn"
             class="bg-blue-500 hover:bg-blue-600 text-white rounded-lg px-4 py-2"
+            id="submit-btn"
+            type="submit"
           >
             Add Book
           </button>
@@ -84,36 +90,36 @@
       <div class="flex flex-col items-center mb-6">
         <h1 class="text-4xl font-bold text-center mb-8">Book Library</h1>
         <button
-          id="add-book-btn"
           class="bg-blue-500 text-white rounded-full p-2 px-6 shadow-lg justify-center hover:bg-blue-600 transition-colors duration-200 flex items-center gap-2"
+          id="add-book-btn"
         >
           <svg
-            xmlns="http://www.w3.org/2000/svg"
             class="h-6 w-6"
             fill="none"
             viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
           >
             <rect
-              x="3"
-              y="5"
-              width="14"
+              fill="none"
               height="14"
               rx="2"
               stroke="currentColor"
               stroke-width="2"
-              fill="none"
+              width="14"
+              x="3"
+              y="5"
             />
             <path
               d="M17 7h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H7"
+              fill="none"
               stroke="currentColor"
               stroke-width="2"
-              fill="none"
             />
             <path
               d="M12 13v-4M10 11h4"
               stroke="currentColor"
-              stroke-width="2"
               stroke-linecap="round"
+              stroke-width="2"
             />
           </svg>
           <span id="add-book-btn-title">Add Book</span>
@@ -121,15 +127,15 @@
       </div>
       <div class="flex justify-center mb-6">
         <input
-          type="text"
+          class="border border-gray-300 rounded-lg p-2 w-full max-w-md"
           id="search-input"
           placeholder="Search for books..."
-          class="border border-gray-300 rounded-lg p-2 w-full max-w-md"
+          type="text"
         />
       </div>
       <div
-        id="books-container"
         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        id="books-container"
       ></div>
     </div>
   </body>
